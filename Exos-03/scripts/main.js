@@ -1,7 +1,7 @@
 //Solution 1
 
 let reponse = prompt('Indiquez votre année de naissance : ');
-let age = 2021 - parseInt(reponse);
+let age = new Date().getFullYear() - parseInt(reponse);
 alert('Vous avez '+ age +' ans.');
 
 // //Solution 2
