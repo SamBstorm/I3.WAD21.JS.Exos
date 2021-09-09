@@ -1,9 +1,20 @@
 let texte = prompt('Veuillez indiquer la phrase à inverser :');
 
+/**
+ * Fonction permettant d'inverser l'ordre des caractères d'une string
+ * @param {string} chaine 
+ */
 function inverser(chaine){
-    let chaine_2 = chaine.split('').reverse().join('');
+    let chaine_2 = chaine.toString().split('').reverse().join('');
     console.log(chaine_2);
     alert(chaine_2);
 }
 
 inverser(texte);
+let nb = 314;
+inverser(nb);
+let o = {};
+inverser(o);
+
+//Fera crasher l'application...
+//inverser(undefined);
