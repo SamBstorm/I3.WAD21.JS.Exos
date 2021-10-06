@@ -1,26 +1,29 @@
-function afficherHeure() {
+let titre1 = document.createElement('h1');
+document.querySelector('body').appendChild(titre1);
+titre1.setAttribute('class','pair')
+//titre1.innerHTML = jour(today) <---Manque la fonction jour()
+ 
+function heure_body(){
     let today = new Date();
-
-    let hour = today.getHours();
+    let heures = today.getHours();
     let minutes = today.getMinutes();
-    let seconds = today.getSeconds();
-
-    // if(seconds < 10) seconds = '0'+seconds;
-    // if(minutes < 10) minutes = '0'+minutes;
-
-    // let time = `${hour}:${minutes}:${seconds}`; 
-    // let time = hour + ':' + minutes + ':' +seconds;
-
-
-    let time = `${hour}:${(minutes < 10) ? '0' + minutes : minutes}:${(seconds < 10) ? '0' + seconds : seconds}`;
-
-    let title_time = document.querySelector('head title');
-
-    title_time.innerText = time;
+    if (minutes < 10) minutes = "0"+minutes;
+    let secondes = today.getSeconds();
+    if (secondes < 10) secondes = "0"+secondes;
+    let heure_mnt = `${heures}:${minutes}:${secondes}`.toString();
+    titre2.innerHTML = heure_mnt;
+};
+ 
+function chgmt_color(){
+    if ((document.querySelector('h1').getAttribute('class')) == 'impair') {
+        document.querySelector('h1').setAttribute('class','pair')
+    }
+    else //<---------- Manque le 'else'
+    document.querySelector('h1').setAttribute('class','impair')
 }
-
-setTimeout(afficherHeure,3000)
-
-// setTimeout(function(){
-//     alert('toto')
-// },3500);
+ 
+let titre2 = document.createElement('h2');
+document.querySelector('body').appendChild(titre2);
+setInterval(heure_body,1000);
+ 
+setInterval(chgmt_color, 1500);
